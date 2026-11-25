@@ -44,7 +44,56 @@ python finetune_lora.py --model_id HuggingFaceTB/SmolLM2-360M-Instruct --sft_dir
 
 Defaults use rank 16, alpha 32, dropout 0.05 and adapters on attention/MLP projection layers. Prompt labels are `-100`; the Hugging Face causal model performs the label shift internally. Answer-token losses still backpropagate through the prompt's contextual computation.
 
-The trainer saves the adapter and tokenizer under `<out_dir>/best_lora_adapter/`, plus metrics and before/during-training probes. It does not save a merged base model. Use the base model together with its adapter for inference; downloading this source repository alone does not provide a trained LinuxGPT CLI.
+The trainer saves the adapter and tokenizer under `<out_dir>/best_lora_adapter/`, plus metrics and before/during-training probes. It does not save a merged base model. The Q&A CLI below loads the base model together with that adapter.
+
+## Ask Linux questions from the CLI (Q&A)
+
+Run from the repository root with your virtual environment activated. Train the adapters above first, or copy your saved adapter directories into this checkout. Model weights and adapters are not included in the repository. The base model downloads from Hugging Face on first use and is cached locally; subsequent questions run locally with no OpenRouter API key.
+
+### Ask one question with Qwen
+
+```bash
+python cli.py --model qwen --adapter runs/qwen/best_lora_adapter "How do I find large files?"
+```
+
+### Ask one question with SmolLM2
+
+```bash
+python cli.py --model smollm --adapter runs/smollm/best_lora_adapter "What is the difference between chmod and chown?"
+```
+
+The question is quoted as one shell argument. The CLI prints an answer and does not execute any generated command. The adapter directory must contain `adapter_config.json`, adapter weights and the tokenizer saved by training. The base model is read from the adapter metadata.
+
+`--adapter` is optional when using the default directories shown above:
+
+```bash
+python cli.py --model qwen "How do I check free disk space?"
+python cli.py --model smollm --device cpu --max-tokens 128 "What does ls -a show?"
+```
+
+`--device auto` is the default: CUDA when available, otherwise CPU. Answers use greedy decoding; `--max-tokens` defaults to 256.
+
+### Interactive Q&A
+
+Keep the model loaded and ask multiple independent questions:
+
+```bash
+python cli.py --model qwen --chat
+python cli.py --model smollm --chat
+```
+
+Type `quit` or `exit` to stop. Each question is answered independently; previous turns are not included as conversation history.
+
+### Compare with the original base model
+
+To ask the original instruction model without a LinuxGPT LoRA adapter:
+
+```bash
+python cli.py --model qwen --base "How do I find large files?"
+python cli.py --model smollm --base --chat
+```
+
+This uses the pretrained model's behavior, not your fine-tuned adapter. Use `python cli.py --help` to see all Q&A options.
 
 ## Optional Colab automation
 
