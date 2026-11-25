@@ -95,6 +95,73 @@ python cli.py --model smollm --base --chat
 
 This uses the pretrained model's behavior, not your fine-tuned adapter. Use `python cli.py --help` to see all Q&A options.
 
+### Try more questions
+
+With an adapter in the default `runs/qwen/best_lora_adapter/` directory:
+
+```bash
+python cli.py --model qwen --device cpu --max-tokens 64 "What is ls?"
+python cli.py --model qwen --device cpu --max-tokens 128 "How do I find files larger than 100 MB?"
+python cli.py --model qwen --device cpu --max-tokens 128 "How do I check free disk space?"
+python cli.py --model qwen --device cpu --max-tokens 128 'How do single and double quotes differ for $HOME?'
+python cli.py --model qwen --device cpu --max-tokens 128 "Is grep --quantum-sort a valid option?"
+```
+
+Single quotes around the `$HOME` question preserve the literal variable name instead of letting your shell expand it. To compare the two fine-tuned models on the same question:
+
+```bash
+python cli.py --model qwen --device cpu --max-tokens 128 "What is the difference between chmod and chown?"
+python cli.py --model smollm --device cpu --max-tokens 128 "What is the difference between chmod and chown?"
+```
+
+Once the base model has been cached and the adapter is available locally, you can require fully offline loading:
+
+```bash
+HF_HUB_OFFLINE=1 python cli.py --model qwen --device cpu --max-tokens 128 "What does ls -a show?"
+```
+
+Offline mode fails if required model files have not been downloaded. This CLI currently exposes Q&A; the command-suffix task is trained and measured by the training/evaluation code.
+
+### Reuse adapters from the original LinuxGPT workspace
+
+These optional examples use your existing adapters without retraining. They assume the original workspace is at `~/test/linuxGPT` and this repository is at `~/test/linuxGPT-publications/linuxgpt-finetuning`. Adjust the paths for your machine.
+
+```bash
+export LINUXGPT_WORKSPACE="$HOME/test/linuxGPT"
+source "$LINUXGPT_WORKSPACE/.venv/bin/activate"
+cd "$HOME/test/linuxGPT-publications/linuxgpt-finetuning"
+
+python cli.py \
+  --model qwen \
+  --adapter "$LINUXGPT_WORKSPACE/experiments/B-finetuning/runs/qwen/best_lora_adapter" \
+  --device cpu --max-tokens 128 \
+  "How do I find files larger than 100 MB?"
+```
+
+Try the saved SmolLM2 adapter:
+
+```bash
+python cli.py \
+  --model smollm \
+  --adapter "$LINUXGPT_WORKSPACE/experiments/B-finetuning/runs/smollm/best_lora_adapter" \
+  --device cpu --max-tokens 128 \
+  "What is the difference between chmod and chown?"
+```
+
+Start interactive Q&A with the existing Qwen adapter:
+
+```bash
+python cli.py \
+  --model qwen \
+  --adapter "$LINUXGPT_WORKSPACE/experiments/B-finetuning/runs/qwen/best_lora_adapter" \
+  --device cpu --max-tokens 128 \
+  --chat
+```
+
+Enter a question at `You:` and type `quit` to exit. To use SmolLM2 interactively, change both `--model` and the adapter path to `smollm`.
+
+A successful smoke test prints the loading message followed by an answer. Inspect correctness separately: model loading alone does not establish that its Linux advice is accurate.
+
 ## Optional Colab automation
 
 The launcher expects an authenticated installation of the separate `google-colab-cli` tool (0.8.0 in the original environment). Set `COLAB_BIN` if it is not on `PATH`; job wrappers accept `PYTHON_BIN`.
