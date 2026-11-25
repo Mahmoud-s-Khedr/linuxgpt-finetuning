@@ -1,0 +1,34 @@
+{
+  "model": {
+    "base_model": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+    "revision": "ea3f2471cf1b1f0db85067f1ef93848e38e88c25",
+    "stage": "lora",
+    "adapter_sha256": "31b83ed698ce10604f543ab4df2128cca85cb70f6ac7575b46fff1fca606f559",
+    "tokenizer_sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+    "name": "qwen_lora",
+    "parameters": 494032768,
+    "context_limit": 8192,
+    "load_ms": 8936.192609995487,
+    "resident_mb_after_load": 2421.67578125
+  },
+  "settings": {
+    "threads": 4,
+    "dtype": "float32",
+    "decoding": "greedy",
+    "repetition_penalty": 1.0,
+    "seed": 123,
+    "runtime": "pytorch_cpu",
+    "hf_lora": "merged in memory",
+    "generation_impl": 1
+  },
+  "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+  "versions": {
+    "torch": "2.15.0+cpu",
+    "transformers": "5.24.1",
+    "peft": "0.22.0",
+    "tokenizers": "0.23.3",
+    "safetensors": "0.8.0"
+  },
+  "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+  "platform": "7.3.3-300.fc45.x86_64"
+}

@@ -1,0 +1,20 @@
+{
+  "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+  "original_scorer_sha256": "c8d5b05365df0e757d07ddd5e7b3f70ff92ad95b2a7857d08d322d0e14ea908a",
+  "origin": "LinuxGPT local CPU extensive evaluation, historical saved checkpoints",
+  "models": [
+    "qwen_base",
+    "qwen_lora",
+    "smollm_base",
+    "smollm_lora"
+  ],
+  "generation_settings": {
+    "threads": 4,
+    "dtype": "float32",
+    "decoding": "greedy",
+    "repetition_penalty": 1.0,
+    "qa_max_new_tokens": 112,
+    "completion_max_new_tokens": 24
+  },
+  "code_note": "Publication checkout includes portability/documentation updates; B also preserves leading completion whitespace. Historical weights were not retrained for publication."
+}

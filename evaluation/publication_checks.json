@@ -1,0 +1,10 @@
+{
+  "checked_utc": "2026-11-25T05:57:09.490142+00:00",
+  "unit_tests": "passed",
+  "archived_scores_recomputed": "passed",
+  "credential_scan": "passed",
+  "source_compilation": "passed",
+  "job_shell_syntax": "passed",
+  "gpu_training_for_publication": false,
+  "completion_whitespace_regression": "passed: leading suffix space, prefix trailing space, partial flag, first completion loss target, padding masks"
+}

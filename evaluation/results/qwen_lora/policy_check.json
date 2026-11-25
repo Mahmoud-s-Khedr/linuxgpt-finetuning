@@ -1,0 +1,115 @@
+{
+  "model": "qwen_lora",
+  "settings": {
+    "qa_temperature": 0.3,
+    "top_p": 0.9,
+    "qa_repetition_penalty": 1.18,
+    "completion_temperature": 0,
+    "completion_repetition_penalty": 1.05,
+    "penalty_window": "last 48 generated tokens",
+    "seed": 123
+  },
+  "limitations": "Six selected cases, one seed, same output caps; supplemental sensitivity diagnostic, not a full second benchmark.",
+  "responses": [
+    {
+      "case_id": "qa_hidden",
+      "mode": "qa",
+      "output": "```\nls -a\n```",
+      "score": {
+        "rubric_match": true,
+        "missing_groups": [],
+        "forbidden_matches": [],
+        "reference_pass": true,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "qa_large",
+      "mode": "qa",
+      "output": "```\nfind . -type f -size +1G\n```",
+      "score": {
+        "rubric_match": true,
+        "missing_groups": [],
+        "forbidden_matches": [],
+        "reference_pass": true,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "qa_fake_grep",
+      "mode": "qa",
+      "output": "`grep --quantum-sort` is a GNU `grep`, and it doesn't have any options that are valid for other grep implementations.\n\nFrom the man page:\n\n```\n--quantum-sort\n        Sort lines in order of their distance from the beginning of each line.\n```",
+      "score": {
+        "rubric_match": false,
+        "missing_groups": [
+          [
+            "not (?:a |an )?(?:valid|real|supported|standard|recognized|actual|existing)|does not exist|doesn.t exist|no such|unrecognized|unknown option|invalid option|unsupported|not.*(?:option|flag)|no.*(?:option|flag)"
+          ]
+        ],
+        "forbidden_matches": [],
+        "reference_pass": false,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": false
+      }
+    },
+    {
+      "case_id": "comp_git_oneline",
+      "mode": "complete",
+      "output": "ly --pretty=format:\"%h %s\"",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "git log --only --pretty=format:\"%h %s\"",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": false,
+        "repetition_4gram": 0.0
+      }
+    },
+    {
+      "case_id": "comp_ctx_extract_0",
+      "mode": "complete",
+      "output": "files=release-2026.tar.gz",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "tar -xzf files=release-2026.tar.gz",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": false,
+        "repetition_4gram": 0.0
+      }
+    },
+    {
+      "case_id": "comp_nospace_cat",
+      "mode": "complete",
+      "output": "/etc/hosts",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "cat/etc/hosts",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": false,
+        "repetition_4gram": 0.0
+      }
+    }
+  ]
+}

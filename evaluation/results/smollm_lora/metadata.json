@@ -1,0 +1,34 @@
+{
+  "model": {
+    "base_model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+    "stage": "lora",
+    "adapter_sha256": "82f79fc39d5c3bc7ecb556f6103caea6da24f66962fae6e391105e3e93a07337",
+    "tokenizer_sha256": "bf346d64f6f0fbcefb4c1b6928a98241467dff36c6fbae5fe1785c4ff90667f4",
+    "name": "smollm_lora",
+    "parameters": 361821120,
+    "context_limit": 8192,
+    "load_ms": 7369.072168003186,
+    "resident_mb_after_load": 1839.546875
+  },
+  "settings": {
+    "threads": 4,
+    "dtype": "float32",
+    "decoding": "greedy",
+    "repetition_penalty": 1.0,
+    "seed": 123,
+    "runtime": "pytorch_cpu",
+    "hf_lora": "merged in memory",
+    "generation_impl": 1
+  },
+  "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+  "versions": {
+    "torch": "2.15.0+cpu",
+    "transformers": "5.24.1",
+    "peft": "0.22.0",
+    "tokenizers": "0.23.3",
+    "safetensors": "0.8.0"
+  },
+  "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+  "platform": "7.3.3-300.fc45.x86_64"
+}

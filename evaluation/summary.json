@@ -1,0 +1,962 @@
+[
+  {
+    "name": "qwen_base",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "base_model": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+        "revision": "ea3f2471cf1b1f0db85067f1ef93848e38e88c25",
+        "stage": "base",
+        "adapter_sha256": null,
+        "tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+        "name": "qwen_base",
+        "parameters": 494032768,
+        "context_limit": 8192,
+        "load_ms": 5292.338776001998,
+        "resident_mb_after_load": 2328.44140625
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 32,
+      "reference_pass_pct": 59.26,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 2939.330560500821,
+      "p95_total_ms": 15577.30898819791,
+      "median_ttft_ms": 706.4665465004509,
+      "p95_ttft_ms": 786.102485352967,
+      "mean_repetition_4gram": 0.028684111574859998,
+      "median_output_tokens": 15.5,
+      "median_tokens_per_s": 5.371238507618264,
+      "hit_generation_cap": 9
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 1,
+      "reference_pass_pct": 1.35,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 1160.98167599921,
+      "p95_total_ms": 2209.4716218478425,
+      "median_ttft_ms": 687.092872998619,
+      "p95_ttft_ms": 794.4684571986728,
+      "mean_repetition_4gram": 0.0,
+      "median_output_tokens": 4.0,
+      "median_tokens_per_s": 3.5435081095308414,
+      "hit_generation_cap": 0,
+      "shell_syntax_pass_pct": 97.56,
+      "multiline": 0,
+      "markdown": 0,
+      "prefix_echo": 64
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 2
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 1
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 4
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 2
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 3
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 0
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 2
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 3
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 4
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 6
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 2
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 11
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "```bash\npwd\n```",
+        "stats": {
+          "prompt_tokens": 963,
+          "used_prompt_tokens": 963,
+          "prompt_truncated": false,
+          "output_tokens": 6,
+          "prefill_ms": 9994.002383995394,
+          "ttft_ms": 9994.379981995735,
+          "total_ms": 10896.041907995823,
+          "cpu_ms": 35162.61143700012,
+          "tokens_per_s": 0.5506586750182221,
+          "stop_reason": "eos",
+          "process_peak_rss_mb": 3264.13671875
+        },
+        "score": {
+          "rubric_match": true,
+          "missing_groups": [],
+          "forbidden_matches": [],
+          "reference_pass": true,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.0,
+          "empty": false,
+          "shell_syntax_ok": true
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "cat",
+        "stats": {
+          "prompt_tokens": 666,
+          "used_prompt_tokens": 666,
+          "prompt_truncated": false,
+          "output_tokens": 1,
+          "prefill_ms": 6461.7223189998185,
+          "ttft_ms": 6462.262897002802,
+          "total_ms": 6650.17888800503,
+          "cpu_ms": 21457.422291000057,
+          "tokens_per_s": 0.15037189477770385,
+          "stop_reason": "eos",
+          "process_peak_rss_mb": 3264.13671875
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat cat",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": true,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 3264.13671875,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 1794.8881720003556,
+        "p95_ms": 2799.1534648026573
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 1130.8466659975238,
+        "p95_ms": 2434.3252522026887
+      }
+    }
+  },
+  {
+    "name": "qwen_lora",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "base_model": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+        "revision": "ea3f2471cf1b1f0db85067f1ef93848e38e88c25",
+        "stage": "lora",
+        "adapter_sha256": "31b83ed698ce10604f543ab4df2128cca85cb70f6ac7575b46fff1fca606f559",
+        "tokenizer_sha256": "3fd169731d2cbde95e10bf356d66d5997fd885dd8dbb6fb4684da3f23b2585d8",
+        "name": "qwen_lora",
+        "parameters": 494032768,
+        "context_limit": 8192,
+        "load_ms": 8936.192609995487,
+        "resident_mb_after_load": 2421.67578125
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 32,
+      "reference_pass_pct": 59.26,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 6565.693884498614,
+      "p95_total_ms": 15814.099601403355,
+      "median_ttft_ms": 701.4881915019942,
+      "p95_ttft_ms": 799.692166100067,
+      "mean_repetition_4gram": 0.1258768124860069,
+      "median_output_tokens": 42.0,
+      "median_tokens_per_s": 6.578222861090637,
+      "hit_generation_cap": 16
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 9,
+      "reference_pass_pct": 12.16,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 1122.5824460016156,
+      "p95_total_ms": 2209.1218210003717,
+      "median_ttft_ms": 656.0027260020433,
+      "p95_ttft_ms": 750.2371996964939,
+      "mean_repetition_4gram": 0.0,
+      "median_output_tokens": 3.0,
+      "median_tokens_per_s": 3.1099553615521045,
+      "hit_generation_cap": 0,
+      "shell_syntax_pass_pct": 100.0,
+      "multiline": 0,
+      "markdown": 0,
+      "prefix_echo": 0
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 2
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 3
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 4
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 2
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 3
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 2
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 2
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 4
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 2
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 3
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 2
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 2
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 5
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 1
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 1,
+      "different_outputs": 7
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "`pwd`",
+        "stats": {
+          "prompt_tokens": 963,
+          "used_prompt_tokens": 963,
+          "prompt_truncated": false,
+          "output_tokens": 3,
+          "prefill_ms": 9521.880031003093,
+          "ttft_ms": 9522.247510001762,
+          "total_ms": 10062.416596003459,
+          "cpu_ms": 32404.855806999876,
+          "tokens_per_s": 0.2981391171174055,
+          "stop_reason": "eos",
+          "process_peak_rss_mb": 3267.51171875
+        },
+        "score": {
+          "rubric_match": true,
+          "missing_groups": [],
+          "forbidden_matches": [],
+          "reference_pass": true,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.0,
+          "empty": false,
+          "shell_syntax_ok": true
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "final-73.txt",
+        "stats": {
+          "prompt_tokens": 666,
+          "used_prompt_tokens": 666,
+          "prompt_truncated": false,
+          "output_tokens": 5,
+          "prefill_ms": 6051.261253000121,
+          "ttft_ms": 6051.596569996036,
+          "total_ms": 6799.698328999511,
+          "cpu_ms": 21991.43849699999,
+          "tokens_per_s": 0.7353267392283984,
+          "stop_reason": "eos",
+          "process_peak_rss_mb": 3267.51171875
+        },
+        "score": {
+          "reference_pass": true,
+          "suffix_reference_match": true,
+          "full_command": "cat final-73.txt",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": false,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 3267.51171875,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 3898.6127829994075,
+        "p95_ms": 15444.254927999282
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 1913.6070869935793,
+        "p95_ms": 2147.711155000434
+      }
+    }
+  },
+  {
+    "name": "smollm_base",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "base_model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+        "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+        "stage": "base",
+        "adapter_sha256": null,
+        "tokenizer_sha256": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+        "name": "smollm_base",
+        "parameters": 361821120,
+        "context_limit": 8192,
+        "load_ms": 5358.439158997498,
+        "resident_mb_after_load": 1772.015625
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 11,
+      "reference_pass_pct": 20.37,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 2873.039351503394,
+      "p95_total_ms": 12379.780402951656,
+      "median_ttft_ms": 519.6719585001119,
+      "p95_ttft_ms": 584.0128481508145,
+      "mean_repetition_4gram": 0.010900932949721387,
+      "median_output_tokens": 22.5,
+      "median_tokens_per_s": 7.791899270112934,
+      "hit_generation_cap": 6
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 0,
+      "reference_pass_pct": 0.0,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 1011.0052755007928,
+      "p95_total_ms": 2667.60109635361,
+      "median_ttft_ms": 478.8681029967847,
+      "p95_ttft_ms": 545.5892164442048,
+      "mean_repetition_4gram": 0.0,
+      "median_output_tokens": 6.0,
+      "median_tokens_per_s": 5.488441245114707,
+      "hit_generation_cap": 6,
+      "shell_syntax_pass_pct": 97.56,
+      "multiline": 4,
+      "markdown": 0,
+      "prefix_echo": 67
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 2
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 0
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 0
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 2
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 1
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 1
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 2
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 11
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "ls",
+        "stats": {
+          "prompt_tokens": 965,
+          "used_prompt_tokens": 965,
+          "prompt_truncated": false,
+          "output_tokens": 1,
+          "prefill_ms": 8326.082102998043,
+          "ttft_ms": 8326.26024199999,
+          "total_ms": 8486.240874997748,
+          "cpu_ms": 28985.792764999816,
+          "tokens_per_s": 0.11783780530508044,
+          "stop_reason": "eos",
+          "process_peak_rss_mb": 2459.42578125
+        },
+        "score": {
+          "rubric_match": false,
+          "missing_groups": [
+            [
+              "\\bpwd\\b"
+            ]
+          ],
+          "forbidden_matches": [],
+          "reference_pass": false,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.0,
+          "empty": false,
+          "shell_syntax_ok": true
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "cat  final-73.txt",
+        "stats": {
+          "prompt_tokens": 670,
+          "used_prompt_tokens": 670,
+          "prompt_truncated": false,
+          "output_tokens": 8,
+          "prefill_ms": 6059.099238998897,
+          "ttft_ms": 6059.458862000611,
+          "total_ms": 7116.571876998933,
+          "cpu_ms": 25029.628509000075,
+          "tokens_per_s": 1.124136752676713,
+          "stop_reason": "eos",
+          "process_peak_rss_mb": 2459.42578125
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat cat  final-73.txt",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": true,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 2459.42578125,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 2919.268091005506,
+        "p95_ms": 3906.843246999779
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 1184.1693169990322,
+        "p95_ms": 1922.0219996001106
+      }
+    }
+  },
+  {
+    "name": "smollm_lora",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "base_model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+        "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+        "stage": "lora",
+        "adapter_sha256": "82f79fc39d5c3bc7ecb556f6103caea6da24f66962fae6e391105e3e93a07337",
+        "tokenizer_sha256": "bf346d64f6f0fbcefb4c1b6928a98241467dff36c6fbae5fe1785c4ff90667f4",
+        "name": "smollm_lora",
+        "parameters": 361821120,
+        "context_limit": 8192,
+        "load_ms": 7369.072168003186,
+        "resident_mb_after_load": 1839.546875
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 17,
+      "reference_pass_pct": 31.48,
+      "unexpected_effect_flags": 1,
+      "empty": 0,
+      "median_total_ms": 4810.993068498647,
+      "p95_total_ms": 13162.45879034941,
+      "median_ttft_ms": 570.6030144974648,
+      "p95_ttft_ms": 664.8786131496308,
+      "mean_repetition_4gram": 0.11976996565847658,
+      "median_output_tokens": 37.0,
+      "median_tokens_per_s": 7.906604970743691,
+      "hit_generation_cap": 17
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 2,
+      "reference_pass_pct": 2.7,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 1743.544714001473,
+      "p95_total_ms": 3114.9281561480166,
+      "median_ttft_ms": 549.7479264995491,
+      "p95_ttft_ms": 667.2658127536125,
+      "mean_repetition_4gram": 0.0247289972899729,
+      "median_output_tokens": 10.0,
+      "median_tokens_per_s": 6.012474476831258,
+      "hit_generation_cap": 11,
+      "shell_syntax_pass_pct": 96.34,
+      "multiline": 0,
+      "markdown": 0,
+      "prefix_echo": 0
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 1
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 1
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 0
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 2
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 3
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 4
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 4
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 8
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "You can use `pwd` to get the current working directory.",
+        "stats": {
+          "prompt_tokens": 965,
+          "used_prompt_tokens": 965,
+          "prompt_truncated": false,
+          "output_tokens": 14,
+          "prefill_ms": 9643.872533000831,
+          "ttft_ms": 9644.454558998405,
+          "total_ms": 11474.968351998541,
+          "cpu_ms": 39135.476800999866,
+          "tokens_per_s": 1.220046937869043,
+          "stop_reason": "eos",
+          "process_peak_rss_mb": 2456.609375
+        },
+        "score": {
+          "rubric_match": true,
+          "missing_groups": [],
+          "forbidden_matches": [],
+          "reference_pass": true,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.0,
+          "empty": false,
+          "shell_syntax_ok": true
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "/etc/apt/sources.list",
+        "stats": {
+          "prompt_tokens": 670,
+          "used_prompt_tokens": 670,
+          "prompt_truncated": false,
+          "output_tokens": 8,
+          "prefill_ms": 5993.484247002925,
+          "ttft_ms": 5993.718693003757,
+          "total_ms": 7147.950257000048,
+          "cpu_ms": 25234.827480999913,
+          "tokens_per_s": 1.119201968727403,
+          "stop_reason": "eos",
+          "process_peak_rss_mb": 2456.609375
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat /etc/apt/sources.list",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": false,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 2456.609375,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 12266.637617001834,
+        "p95_ms": 14211.341842199909
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 1760.2557399950456,
+        "p95_ms": 2457.9748001982807
+      }
+    }
+  }
+]

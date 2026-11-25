@@ -1,0 +1,34 @@
+{
+  "model": {
+    "base_model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+    "stage": "base",
+    "adapter_sha256": null,
+    "tokenizer_sha256": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+    "name": "smollm_base",
+    "parameters": 361821120,
+    "context_limit": 8192,
+    "load_ms": 5358.439158997498,
+    "resident_mb_after_load": 1772.015625
+  },
+  "settings": {
+    "threads": 4,
+    "dtype": "float32",
+    "decoding": "greedy",
+    "repetition_penalty": 1.0,
+    "seed": 123,
+    "runtime": "pytorch_cpu",
+    "hf_lora": "merged in memory",
+    "generation_impl": 1
+  },
+  "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+  "versions": {
+    "torch": "2.15.0+cpu",
+    "transformers": "5.24.1",
+    "peft": "0.22.0",
+    "tokenizers": "0.23.3",
+    "safetensors": "0.8.0"
+  },
+  "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+  "platform": "7.3.3-300.fc45.x86_64"
+}

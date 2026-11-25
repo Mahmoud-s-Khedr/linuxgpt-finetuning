@@ -1,0 +1,115 @@
+{
+  "model": "qwen_base",
+  "settings": {
+    "qa_temperature": 0.3,
+    "top_p": 0.9,
+    "qa_repetition_penalty": 1.18,
+    "completion_temperature": 0,
+    "completion_repetition_penalty": 1.05,
+    "penalty_window": "last 48 generated tokens",
+    "seed": 123
+  },
+  "limitations": "Six selected cases, one seed, same output caps; supplemental sensitivity diagnostic, not a full second benchmark.",
+  "responses": [
+    {
+      "case_id": "qa_hidden",
+      "mode": "qa",
+      "output": "```bash\nls -la\n```\n\nThis command lists all entries in the current directory, including hidden files.",
+      "score": {
+        "rubric_match": true,
+        "missing_groups": [],
+        "forbidden_matches": [],
+        "reference_pass": true,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "qa_large",
+      "mode": "qa",
+      "output": "```bash\nfind . -type f -size +1G\n```\n\nThis command searches for files (`-f`) in the current directory and its subdirectories (`-type f`), filtering by size greater than 1 GiB.",
+      "score": {
+        "rubric_match": true,
+        "missing_groups": [],
+        "forbidden_matches": [],
+        "reference_pass": true,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "qa_fake_grep",
+      "mode": "qa",
+      "output": "`grep --quantum-sort` is a command-line utility in Linux that sorts lines based on the frequency of their occurrences. It's particularly useful for analyzing text data where you need to quickly identify patterns or groups.\n\nThe `--quantum-sort` option allows you to sort lines by a specific metric, such as the number of characters in each line. This is often used when you want to find common words or phrases across multiple files that might have similar content.\n\nTo use `grep --quantum-sort`, you can specify it with a pattern followed by the",
+      "score": {
+        "rubric_match": false,
+        "missing_groups": [
+          [
+            "not (?:a |an )?(?:valid|real|supported|standard|recognized|actual|existing)|does not exist|doesn.t exist|no such|unrecognized|unknown option|invalid option|unsupported|not.*(?:option|flag)|no.*(?:option|flag)"
+          ]
+        ],
+        "forbidden_matches": [],
+        "reference_pass": false,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "comp_git_oneline",
+      "mode": "complete",
+      "output": "git log --on",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "git log --ongit log --on",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": true,
+        "repetition_4gram": 0.0
+      }
+    },
+    {
+      "case_id": "comp_ctx_extract_0",
+      "mode": "complete",
+      "output": "tar -xzf release-2026.tar.gz",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "tar -xzf tar -xzf release-2026.tar.gz",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": true,
+        "repetition_4gram": 0.0
+      }
+    },
+    {
+      "case_id": "comp_nospace_cat",
+      "mode": "complete",
+      "output": "cat",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "catcat",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": true,
+        "repetition_4gram": 0.0
+      }
+    }
+  ]
+}
